@@ -8,12 +8,13 @@ import jwt
 import bcrypt
 from datetime import timedelta
 from fastapi.middleware.cors import CORSMiddleware
+from config import DATABASE_URL
 
 
 from models import *
 
 #database setup
-database_URL = "postgresql+asyncpg://..." #связать с базой данных проекта
+database_URL = "postgresql+asyncpg://postgres:gangball08@localhost:5432/postgres" #связать с базой данных проекта
 engine = create_async_engine(database_URL,  echo=True)
 Session = async_sessionmaker(engine, expire_on_commit=False)
 
